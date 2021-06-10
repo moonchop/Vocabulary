@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <div className="header">
             <h1>
-            <Link to="/">토익 영단어(Home))</Link>
+            <Link to="/">토익 영단어(Home)</Link>
             </h1>
             <div className="menu">
                 <a href="#x" classname="link">

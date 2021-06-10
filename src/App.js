@@ -13,7 +13,7 @@ function App() {
       
         {/* <Event/>
         <Usestate />
-        <Usestate />
+        <Usestate /> 
         <Usestate />
         <Props age={10}/>
         <Props age={20}/>
