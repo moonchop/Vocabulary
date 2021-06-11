@@ -8,9 +8,9 @@ export default function Header() {
             <Link to="/">토익 영단어(Home)</Link>
             </h1>
             <div className="menu">
-                <a href="#x" classname="link">
+                <Link to ="/create_word">
                     단어추가
-                </a>
+                </Link>
                 <a href="#x" classname="link">
                     Day추가
                 </a>

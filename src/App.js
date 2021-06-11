@@ -6,6 +6,7 @@ import Header from './components/voca/Header';
 import DayList from './components/voca/DayList';
 import Day from './components/voca/Day';
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import CreateWord from './components/voca/CreateWord';
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +27,9 @@ function App() {
 
           <Route path="/day/:day"> {/* 다른 page로 갔을때, 바뀌게하는 것 /:day*/}
            <Day/>
+          </Route>
+          <Route path="/create_word">
+           <CreateWord/>
           </Route>
         </Switch>
         </div>

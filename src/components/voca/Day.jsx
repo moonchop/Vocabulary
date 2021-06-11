@@ -4,10 +4,11 @@ import Word from "./Word"
 // URL에 포함된 값을 얻을 땐 useParams
 export default function Day(){
     const day=useParams().day;
-    const [word,setWords]= useState([]);
+    
     // const wordList = dummy.words.filter(word=> (
     //     word.day===Number(day)
     // ))
+    const [word,setWords]= useState([]);
     useEffect(()=>{
         fetch(`http://localhost:3001/words?day=${day}`)
         .then(res=>{
