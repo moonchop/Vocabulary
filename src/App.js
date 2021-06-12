@@ -7,6 +7,7 @@ import DayList from './components/voca/DayList';
 import Day from './components/voca/Day';
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
 import CreateWord from './components/voca/CreateWord';
+import CreateDay from './components/voca/CreateDay';
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/create_word">
            <CreateWord/>
+          </Route>
+          <Route path="/create_day">
+           <CreateDay/>
           </Route>
         </Switch>
         </div>

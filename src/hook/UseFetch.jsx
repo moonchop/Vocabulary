@@ -5,7 +5,7 @@ export default function UseFetch(url) {
     
     
     const [data,setData]= useState([]);
-useEffect(()=>{
+    useEffect(()=>{
     fetch(url)
     .then(res=>{
         return res.json();
