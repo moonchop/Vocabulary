@@ -1,8 +1,11 @@
 import React from 'react'
 import useFetch from "../../hook/UseFetch"
 import {useRef} from "react";
+import {useHistory} from "react-router";
 export default function CreateWord() {
-    const days = useFetch("http://localhost:3001/days")
+    const days = useFetch("http://localhost:3001/days");
+    const history = useHistory();
+
     const engRef = useRef(null);
     const korRef = useRef(null);
     const dayRef = useRef(null);
@@ -27,6 +30,7 @@ export default function CreateWord() {
             .then(res=>{
                 if(res.ok){
                     alert("생성 완료!")
+                    history.push(`day/${dayRef.current.value}`);
                 }
             });
     }
