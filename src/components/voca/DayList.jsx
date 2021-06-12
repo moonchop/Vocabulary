@@ -4,6 +4,7 @@ import {useState,useEffect} from 'react'
 export default function DayList() {
    
     const [days,setDays]=useState([]);
+    
     useEffect(()=>{
         fetch("http://localhost:3001/days")
         .then(res=>{
@@ -13,6 +14,9 @@ export default function DayList() {
             setDays(data);
         });
     },[]);
+    if(days.length===0){
+        return <span>Loading...</span>;
+    }
 
     return <ul className="list_day">
         {/*map(반복문)은 배열을 받아서 새로운 배열을 반환함.*/}

@@ -52,6 +52,13 @@
       "kor": "좋다",
       "isDone": false,
       "id": 9
+    },
+    {
+      "day": "1",
+      "eng": "monday",
+      "kor": "월요일",
+      "isDone": false,
+      "id": 10
     }
   ]
 }

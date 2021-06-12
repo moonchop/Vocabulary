@@ -1,11 +1,11 @@
 import React from 'react'
 import useFetch from "../../hook/UseFetch"
-import {useRef} from "react";
+import {useRef,useState} from "react";
 import {useHistory} from "react-router";
 export default function CreateWord() {
     const days = useFetch("http://localhost:3001/days");
     const history = useHistory();
-
+    const [isLoading,setIsLoading]=useState(false)
     const engRef = useRef(null);
     const korRef = useRef(null);
     const dayRef = useRef(null);
@@ -14,25 +14,28 @@ export default function CreateWord() {
     function onSubmit(e){
         e.preventDefault();
 
-       
-        fetch(`http://localhost:3001/words/`,{
-                method:"POST", //새로운 단어 생성
-                headers:{
-                    "Content-Type":"application/json",
-                },
-                body:JSON.stringify({ //json문자열로 변환
-                    day:dayRef.current.value,
-                    eng:engRef.current.value,
-                    kor:korRef.current.value,
-                    isDone:false
-                }),
-            })
-            .then(res=>{
-                if(res.ok){
-                    alert("생성 완료!")
-                    history.push(`day/${dayRef.current.value}`);
-                }
-            });
+        if(!isLoading){
+            setIsLoading(true);
+            fetch(`http://localhost:3001/words/`,{
+                    method:"POST", //새로운 단어 생성
+                    headers:{
+                        "Content-Type":"application/json",
+                    },
+                    body:JSON.stringify({ //json문자열로 변환
+                        day:dayRef.current.value,
+                        eng:engRef.current.value,
+                        kor:korRef.current.value,
+                        isDone:false
+                    }),
+                })
+                .then(res=>{
+                    if(res.ok){
+                        alert("생성 완료!")
+                        history.push(`day/${dayRef.current.value}`);
+                        setIsLoading(false);
+                    }
+                });
+        }
     }
  
     return (
@@ -57,7 +60,7 @@ export default function CreateWord() {
                     ))}
                 </select>
             </div>
-            <button>저장</button>
+            <button>{isLoading ? "Saving..." : "저장"}</button>
 
         </form>
     )
