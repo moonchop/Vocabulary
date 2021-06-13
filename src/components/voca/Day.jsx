@@ -1,3 +1,4 @@
+//특정 날짜를 클릭했을때, 단어가 나오는 page
 import {useState,useEffect} from 'react'
 import {useParams} from "react-router-dom"
 import Word from "./Word"
