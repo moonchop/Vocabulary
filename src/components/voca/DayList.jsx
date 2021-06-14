@@ -25,7 +25,7 @@ export default function DayList() {
             {/* key가 필요한 이유는 값을 생성, 삭제할때 나머지 value 값의 위치를 알 수 있기 때문임.
             따라서 위의 경우 index를 쓰면 안됨.*/}
                 <Link to={`/day/${day.day}`}> Day{day.day}</Link>
-               
+               {/* Switch를 사용하여 Link로 렌더링. 콘솔에선 a태그로 연결된다. */}
             </li>
         ))}
         <li></li>

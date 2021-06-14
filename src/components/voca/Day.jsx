@@ -1,10 +1,13 @@
 //특정 날짜를 클릭했을때, 단어가 나오는 page
 import {useState,useEffect} from 'react'
 import {useParams} from "react-router-dom"
+// /:day에서 url에 포함된 값을 얻기 위함.
+// =URL에 포함된 값을 얻을 땐 useParams
 import Word from "./Word"
-// URL에 포함된 값을 얻을 땐 useParams
+
 export default function Day(){
-    const day=useParams().day;
+    const day=useParams().day; 
+    //useParams.day는 App.js에서 선언한 day다. url에서 값(String)을 가져와 day에 맞는 page 노출한다.
     
     // const wordList = dummy.words.filter(word=> (
     //     word.day===Number(day)
