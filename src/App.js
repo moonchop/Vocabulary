@@ -21,6 +21,7 @@ function App() {
         <Props age={10}/>
         <Props age={20}/>
         <Props age={30}/> */}
+        
         <Header/>
         <Switch> 
           {/* Switch내부는 url에 따라 각각 다른 page보여준다. Link로 연결해야함.

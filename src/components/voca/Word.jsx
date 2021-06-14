@@ -1,13 +1,19 @@
-//특정 날짜를 클릭했을때, 단어가 나오는 page
+//뜻 숨기기는 단어에만 해당(checkbox X, 버튼 X)하기 때문에 따로 component를 만들어줌.
 import React from 'react'
 import {useState} from 'react'
-export default function Word(props) {
+export default function Word(props) { //props={word}
+    //Day.jsx의 word를 props로 받아옴.
     const [word,setWord]= useState(props.word)
-    const [isShow,setIsShow]= useState(false);
+    const [isShow,setIsShow]= useState(false); //false는 단어외움 유무를 알기 위함.
+    //뜻 숨기기, 보이기를 위한 useState
     const [isDone,setIsDone]= useState(word.isDone);
-    function toggleShow(){
+    //check 표시 상태를 나타내기 위한 useState
+
+    function toggleShow(){ //버튼을 눌렀을때, 보이기 숨기기 하는 함수.
         setIsShow(!isShow);
     }
+
+
     function toggleDone()
     {
         //setIsDone(!isDone);
@@ -42,6 +48,7 @@ export default function Word(props) {
     if(word.id===0){
         return null;
     }
+    
     return (
         <tr className={isDone ? "off" : " "}>
             <td>
@@ -49,8 +56,10 @@ export default function Word(props) {
             </td>
             <td>{word.eng}</td>
             <td>{isShow &&word.kor}</td>
+            {/* isShow===true일때 kor 보여줌 */}
             <td>
                 <button onClick={toggleShow}>뜻 {isShow ? '숨기기': '보기'}</button>
+                {/* toggleShow(), setIsShow로 단어를 숨기기 보이기 할 수있음. */}
                 <button onClick={del} className="btn_del">삭제</button>
             </td>
     </tr>

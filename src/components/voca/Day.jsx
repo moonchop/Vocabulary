@@ -32,7 +32,7 @@ export default function Day(){
     {word.length === 0 && <span>Loading...</span>}
     <table>
         <tbody>
-            {word.map(word=>(
+            {word.map(word=>( //word를 반복해서 찍어줌.
                <Word word={word} key={word.id}/>
             ))}
         </tbody>
