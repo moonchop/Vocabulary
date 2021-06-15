@@ -24,8 +24,8 @@ export default function Day(){
     },[day]);
     
    
-  
-
+    //const words=useFetch(`http://localhost:3001/words?day=${day}`)
+    //useFetch를 이용하면 위에 코드 필요없음
     return (
     <>
     <h2>Day {day}</h2>
