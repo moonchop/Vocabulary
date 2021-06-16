@@ -12,7 +12,7 @@ export default function Day(){
     // const wordList = dummy.words.filter(word=> (
     //     word.day===Number(day)
     // ))
-    const [word,setWords]= useState([]);
+    const [word,setWords]= useState([]); //빈 배열
     useEffect(()=>{
         fetch(`http://localhost:3001/words?day=${day}`)
         .then(res=>{

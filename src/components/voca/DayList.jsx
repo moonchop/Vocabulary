@@ -7,14 +7,17 @@ export default function DayList() {
     const [days,setDays]=useState([]);
     
     useEffect(()=>{
+        //랜더링되고 api를 호출하기 위해 useEffect씀
         fetch("http://localhost:3001/days")
-        .then(res=>{
+        .then(res=>{ //res는 http응답이고, 실제 json은 아님. 그래서 json 메소드를 사용해준다. 그럼 json으로 변환되어 반환함. 
             return res.json();
         })
-        .then(data=>{
+        .then(data=>{ //data를 받아서 day 목록을 반환한다.
             setDays(data);
         });
     },[]);
+    //[count]를 하면 count가 변경되었을때만 실행. 즉, 조건임(의존성 배열)
+    //빈배열을 입력하면 한번만 실행된다.
     if(days.length===0){
         return <span>Loading...</span>;
     }
