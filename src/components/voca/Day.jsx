@@ -15,6 +15,7 @@ export default function Day(){
     const [word,setWords]= useState([]); //빈 배열
     useEffect(()=>{
         fetch(`http://localhost:3001/words?day=${day}`)
+        //?day=1은 Day=1의 단어만 가져온다.
         .then(res=>{
             return res.json();
         })
@@ -22,7 +23,7 @@ export default function Day(){
             setWords(data);
         });
     },[day]);
-    
+    //useEffect내부에서 ${day}같이 특정값을 사용하면 [day]넣어줘야함.
    
     //const words=useFetch(`http://localhost:3001/words?day=${day}`)
     //useFetch를 이용하면 위에 코드 필요없음

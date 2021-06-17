@@ -15,21 +15,22 @@ export default function Word(props) { //props={word}
 
 
     function toggleDone()
-    {
+    {   //checkbox 유지하는 함수
         //setIsDone(!isDone);
         fetch(`http://localhost:3001/words/${word.id}`,{
-            method:"PUT",
+            method:"PUT", 
             headers:{
-                "Content-Type":"application/json",
+                "Content-Type":"application/json",//보내는 리소스의 타입을 의미
             },
-            body:JSON.stringify({ //json문자열로 변환
-                ...word, //기존데이터에
+            //PUT은 body가 필요함. 정보를 넘겨줘야하기 때문.
+            body:JSON.stringify({ //PUT 할 내용들을 json문자열로 변환해 body에  저장.
+                ...word, //기존데이터에  //(word배열의 값을 꺼냄)
                 isDone:!isDone, //isDone을 바꿔서 입력
             }),
         })
         .then(res=>{
-            if(res.ok){
-                setIsDone(!isDone)
+            if(res.ok){ //then 후에 응답이 ok면 
+                setIsDone(!isDone) //state바꿈.
             }
         });
     }
